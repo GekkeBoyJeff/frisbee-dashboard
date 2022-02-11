@@ -1,5 +1,7 @@
+// 2 classes selecteren, de slides zet ik in een array
 const slider = document.querySelector('.slider-container'),
 slides = Array.from(document.querySelectorAll('.slide'))
+
 
 let isDragging = false,
 startPos = 0,
@@ -8,6 +10,7 @@ prevTranslate = 0,
 animationID = 0,
 currentIndex = 0
 
+// voor elke .slides van slide word het opgeslagen in index
 slides.forEach((slide, index) => {
     const slideImage = document.querySelector('img')
     //slideImage.addEventListener('dragstart', (e) => e.preventDefault())
