@@ -68,6 +68,25 @@ transform: scale(0.9);
     margin-bottom: 10px;
 }
 
+li.card {
+    display: flex;
+    border-radius: 5px;
+    width: 90%;
+    margin: 20px;
+    align-items: center;
+    box-shadow: 1px 1px 3px #c5c5c5;
+    flex-direction: row;
+    padding: 15px;
+}
+
+li.card img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 0px;
+    contain: size;
+}
+
 @media screen and (min-width:426) {
 
 }
