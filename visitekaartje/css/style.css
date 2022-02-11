@@ -87,6 +87,10 @@ li.card img {
     contain: size;
 }
 
-@media screen and (min-width:426) {
-
+@media screen and (min-width:426px) {
+    main{
+        max-width: 956px;
+        display:flex;
+        margin: 0 auto;
+    }
 }
