@@ -59,7 +59,7 @@ werkend kon krijgen. na veel googlen heb ik het soort van werkend gekregen.
 
 <img src="src/visitekaartje2.png" style="display:inline-flex;"><img src="/src/visitekaartje2-1.png" style="display:inline-flex;">
 
-[Zie het visitekaartje](https://gekkeboyjeff.github.io/visitekaartje/)
+[Zie het visitekaartje](/week1/visitekaartje/)
 
 ##Teampagina: Geekotron
 
@@ -87,6 +87,8 @@ Hieronder is een eerste versie te zien waarin wij aan het spelen waren met posit
 Nadat wij de kaarten konden laten draaien en de stijling een beetje op orde hadden konden wij een 2de versie samenvoegen. Wij hadden namelijk alle onderdelen van de pagina in kleine taken verdeeld zodat iedereen wat kon doen eraan.
 
 <img src="/src/finalFinalTeamPage.png" alt="#">
+
+[Zie de teampagina](/week1/Geekotron/)
 
 <div id="week2">
     <a href="#week1">
