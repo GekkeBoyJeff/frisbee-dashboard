@@ -98,7 +98,7 @@ Nadat wij de kaarten konden laten draaien en de stijling een beetje op orde hadd
 
 ## Oefenen met Api's
 
-<img src="/src/test-api-home.png" alt="#">~Sneakpeak~
+<img src="/src/test-api-home.png" alt="#">~Sneakpeak
 
 Voordat ik me direct probeerde te verdiepen in de API van de opdracht, heb ik de oefenopdracht die sommige klasgenoten hadden gekregen zelf ook gedaan.
 
