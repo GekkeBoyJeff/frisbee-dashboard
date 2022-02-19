@@ -96,5 +96,74 @@ Nadat wij de kaarten konden laten draaien en de stijling een beetje op orde hadd
     </a>
 </div>
 
+## Oefenen met Api's
 
+Voordat ik me direct probeerde te verdiepen in de API van de opdracht, heb ik de oefenopdracht die sommige klasgenoten hadden gekregen zelf ook gedaan.
 
+De oefenopdracht bestond uit het "scrapen" van afbeeldingen van giphy. je kreeg standaard uiterlijk 10 afbeeldingen die je kon oproepen vanwege een limiet. Dat vond ik problematisch omdat ik een ander idee in gedachten had toen ik dit zelf maakte. Maar goed het lukte me al vrij snel om verschillende types aan data op te halen en weer te geven:
+
+Ik heb wel even moeite gehad met het uitzoeken hoe ik dat limiet kon aanpassen. Gelukkig kwam ik erachter dat je het limiet tot 50 kan uitbreiden door dit zoals eerder benoemd in de url zelf aan te passen.
+
+```js
+'https://api.giphy.com/v1/gifs/search?q=pokemon&api_key=jhcL7QPGb2ObrOHw1dEJuL9w2j71zfEk&limit=50'
+```
+
+Hetgene wat ik hierna wou doen was echter moeilijker. Ik wou namelijk knoppen maken om naar een volgende en vorige pagina te gaan. Ik las online wel dat mensen praatte over een offset maar dat zei me eigenlijk helemaal niets. Vanuit de data uit de API zag ik ook telkens 'pages' staan maar daar kon ik simpelweg niets over vinden. Ik was op een gegeven moment aan het opzoeken hoe ik die offset kon toepassen. Het heeft even geduurd voordat ik erachter kwam dat je dit dus ook in de url moet plaatsen. Maar goed dan was ik er nog niet. Ik moest de waarde in de urlnamelijk kunnen aanpassen. 
+
+```js
+var endpoint = 'https://api.giphy.com/v1/gifs/search?q=pokemon&api_key=jhcL7QPGb2ObrOHw1dEJuL9w2j71zfEk&limit=50&offset='
+var offset = 0
+```
+
+dus ik heb de variabel aangemaakt (offset) die standaard op 0 staat. en die verander ik even later in mijn code.
+
+Het inladen van de data ging gelukkig vrij gemakkelijk, daar heb ik weinig moeite bij gehad. Zoals je hieronder ziet loopt de code al iets voor op het 'pagineren' maar daar kom ik zo.
+
+```js
+// 2. the story
+getData()
+// 3. functions
+function getData() {
+    // 1. variables (aka bindings), on top of local scope
+    const list = document.querySelector('body ul')
+    // 2. the story
+    fetch(endpoint + offset) // get data asynchronously
+        .then(function(response){
+            return response.json() // stream
+        })
+        .then(function(giphies){
+            //console.log(giphies)
+            for (var i = 0; i < 50; i++){
+                giphdata = giphies.data;
+                list.insertAdjacentHTML('beforeend', 
+                `<li><a href="${giphdata[i].bitly_url}">
+                    <img src="https://media.giphy.com/media/${giphdata[i].id}/giphy.gif" alt="${giphdata[i].title}">
+                    <h2>${giphdata[i].title}</h2>
+                    <a href="${giphdata[i].source}">Source</a>
+                    </a></li>`) 
+            } 
+        })
+}
+```
+
+Ik heb echter wel heel lang zitten strugglen met het toepassen van de offset in de url. maar goed uiteindelijk bleef het antwoord heel simpel, namelijk;
+
+```js
+document.querySelector('.next').addEventListener("click", function() {
+        list.innerHTML = ''
+        offset = offset + 50
+        getData()
+})
+
+document.querySelector('.previous').addEventListener("click", function() {
+    if(offset == 0){
+        console.log('offset kan niet in de min');
+    }else{
+        list.innerHTML = ''
+        offset = offset - 50
+        getData()
+    }
+})
+```
+
+## Beginnen met de opdracht
