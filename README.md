@@ -27,12 +27,12 @@ Alhoewel de opdracht vrij simpel leek, verliep dit toch niet zonder enige slag o
 De persoon die mijn kaartje mocht ontwerpen koos ervoor om tandwielen in mijn ontwerp te plaatsen, gezien het feit dat ik best technisch ben.
 ### Screenshots
 
-<img src="src/card1.jpg" style="display:inline-flex; width:300px;">
 
 Op dit blad zie je in het groot het ontwerp dat voor mij getekend was. 
 daarboven en onder zijn schetsen die ik heb gemaakt om te itereren op dit ontwerp.
 
-<img src="src/card2.jpg" style="display:inline-flex; width:300px;">
+
+<img src="src/card1.jpg" style="display:inline-flex; width:300px;"><img src="src/card2.jpg" style="display:inline-flex; width:300px;">
 
 
 Uiteindelijk koos ik ervoor om het tandwiel in het midden te plaatsen. 
