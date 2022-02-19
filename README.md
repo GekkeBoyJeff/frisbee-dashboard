@@ -57,7 +57,7 @@ te maken met het tandwiel maar het was iets wat ik wou maken. Echter na het make
 ontwerp liep ik al gouw vast op hoe ik het draaien / verschuiven van het kaartje
 werkend kon krijgen. na veel googlen heb ik het soort van werkend gekregen.
 
-<img src="src/visitekaartje2.png" style="display:inline-flex;"><img src="/src/visitekaartje2-1.png" style="display:inline-flex;">
+<img src="src/visitekaartje2.png" style="display:inline-flex;"><img src="src/visitekaartje2-1.png" style="display:inline-flex;">
 
 [Zie het visitekaartje](https://gekkeboyjeff.github.io/web-app-from-scratch-2122/week1/visitekaartje/)
 
