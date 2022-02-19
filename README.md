@@ -75,8 +75,24 @@ Als eerst hebben we als groep ge-brainstormed over hoe wij de pagina eruit woude
 
 <img src="/src/team-sketch-tim.jpg" alt="#" style="display:inline-flex; width:400px;"><img src="/src/team-sketch1.jpg" alt="#" style="display:inline-flex; width:400px;">
 
+Hieruit hebben wij uiteindelijk een nieuw ontwerp gemaakt, namelijk;
+
+<img src="/src/teamFinal.jpg" alt="#" style="display:inline-flex; width:400px;">
+
+Wij hebben ondervonden dat wij allemaal wel iets nerdy/geeky hebben en pokemon/gamen leuk vinden. Daarom hadden wij besloten om een teampagina te maken die gebaseerd is op Pokemon.
+Hieronder is een eerste versie te zien waarin wij aan het spelen waren met positionering en het draaien van de kaarten
+
+<img src="/src/teamV1.png" alt="#"  style="display:inline-flex; width:400px;">
+
+Nadat wij de kaarten konden laten draaien en de stijling een beetje op orde hadden konden wij een 2de versie samenvoegen. Wij hadden namelijk alle onderdelen van de pagina in kleine taken verdeeld zodat iedereen wat kon doen eraan.
+
+<img src="/src/finalFinalTeamPage.png" alt="#"  style="display:inline-flex; width:400px;">
+
 <div id="week2">
     <a href="#week1">
     <img src="svgNotRelated/week2.svg" width="100%" height="230" alt="geanimeerde header tekst waar 'week 1' in staat" style="padding-bottom:-10px; font-size:32px; text-align:center; object-fit: cover; border-radius: 10px;">
     </a>
 </div>
+
+
+
