@@ -68,11 +68,12 @@ De hele klas is verdeeld in kleine groepjes zodat de leerlingen elkaar leren ken
 Als groep kregen wij de opdracht om een groepspagina te maken. Deze moest doorlinken naar onze visitekaartjes.
 
 Als eerst hebben we als groep ge-brainstormed over hoe wij de pagina eruit wouden laten zien. Hiervoor hebben wij een aantal schetsen gemaakt.
+
 <img src="/src/team-sketch-yolanda1.png" alt="#" style="display:inline-flex; width:250px;"><img src="/src/team-sketch-yolanda2.png" alt="#" style="display:inline-flex; width:250px;"><img src="/src/team-sketch-yolanda3.png" alt="#" style="display:inline-flex; width:250px;">
 
-<img src="/src/team-sketch-farrahton.jpg" alt="#" style="display:inline-flex; width:250px;"><img src="/src/team-sketch-jeany.jpg" alt="#" style="display:inline-flex; width:250px;">
+<img src="/src/team-sketch-farrahton.jpg" alt="#" style="display:inline-flex; width:400px;"><img src="/src/team-sketch-jeany.jpg" alt="#" style="display:inline-flex; width:400px;">
 
-<img src="/src/team-sketch-tim.jpg" alt="#" style="display:inline-flex; width:250px;"><img src="/src/team-sketch1.jpg" alt="#" style="display:inline-flex; width:250px;">
+<img src="/src/team-sketch-tim.jpg" alt="#" style="display:inline-flex; width:400px;"><img src="/src/team-sketch1.jpg" alt="#" style="display:inline-flex; width:400px;">
 
 <div id="week2">
     <a href="#week1">
