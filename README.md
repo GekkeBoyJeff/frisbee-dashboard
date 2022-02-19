@@ -69,24 +69,24 @@ Als groep kregen wij de opdracht om een groepspagina te maken. Deze moest doorli
 
 Als eerst hebben we als groep ge-brainstormed over hoe wij de pagina eruit wouden laten zien. Hiervoor hebben wij een aantal schetsen gemaakt.
 
-<img src="/src/team-sketch-yolanda1.png" alt="#" style="display:inline-flex; width:250px;"><img src="/src/team-sketch-yolanda2.png" alt="#" style="display:inline-flex; width:250px;"><img src="/src/team-sketch-yolanda3.png" alt="#" style="display:inline-flex; width:250px;">
+<img src="src/team-sketch-yolanda1.png" alt="#" style="display:inline-flex; width:250px;"><img src="src/team-sketch-yolanda2.png" alt="#" style="display:inline-flex; width:250px;"><img src="src/team-sketch-yolanda3.png" alt="#" style="display:inline-flex; width:250px;">
 
-<img src="/src/team-sketch-farrahton.jpg" alt="#" style="display:inline-flex; width:400px;"><img src="/src/team-sketch-jeany.jpg" alt="#" style="display:inline-flex; width:400px;">
+<img src="src/team-sketch-farrahton.jpg" alt="#" style="display:inline-flex; width:400px;"><img src="src/team-sketch-jeany.jpg" alt="#" style="display:inline-flex; width:400px;">
 
-<img src="/src/team-sketch-tim.jpg" alt="#" style="display:inline-flex; width:400px;"><img src="/src/team-sketch1.jpg" alt="#" style="display:inline-flex; width:400px;">
+<img src="src/team-sketch-tim.jpg" alt="#" style="display:inline-flex; width:400px;"><img src="src/team-sketch1.jpg" alt="#" style="display:inline-flex; width:400px;">
 
 Hieruit hebben wij uiteindelijk een nieuw ontwerp gemaakt, namelijk;
 
-<img src="/src/teamFinal.jpg" alt="#">
+<img src="src/teamFinal.jpg" alt="#">
 
 Wij hebben ondervonden dat wij allemaal wel iets nerdy/geeky hebben en pokemon/gamen leuk vinden. Daarom hadden wij besloten om een teampagina te maken die gebaseerd is op Pokemon.
 Hieronder is een eerste versie te zien waarin wij aan het spelen waren met positionering en het draaien van de kaarten
 
-<img src="/src/teamV1.png" alt="#">
+<img src="src/teamV1.png" alt="#">
 
 Nadat wij de kaarten konden laten draaien en de stijling een beetje op orde hadden konden wij een 2de versie samenvoegen. Wij hadden namelijk alle onderdelen van de pagina in kleine taken verdeeld zodat iedereen wat kon doen eraan.
 
-<img src="/src/finalFinalTeamPage.png" alt="#">
+<img src="src/finalFinalTeamPage.png" alt="#">
 
 [Zie de teampagina](https://gekkeboyjeff.github.io/web-app-from-scratch-2122/week1/Geekotron/)
 
