@@ -174,9 +174,12 @@ Ik heb de opdracht Frisbee tournament gekozen.
 
 Wat heb ik mij vergist in de moeilijkheidsgraad van deze opdracht. Het hele systeem van het tournament snappen vereist al heel veel denkwerk. 
 
-Maar goed, in deze week wou ik eerst kijken welke data ik nou precies kon ophalen, echter kon ik mij niet registreren op hun website vanwege een error.<img src="src/internal-server-error.png">
+Maar goed, in deze week wou ik eerst kijken welke data ik nou precies kon ophalen, echter kon ik mij niet registreren op hun website vanwege een error.
+
+<img src="src/internal-server-error.png">
 
 Dus ben ik begonnen met onderzoek doen naar hoe heel het frisbee tournament in elkaar zit. Dit heeft mij veel tijd gekost deze week. Ik snapte het hele systeem erachter niet.
+
 <img src="/src/frisbee-1.jpg" width="250px"><img src="/src/frisbee-2.jpg" width="250px"><img src="/src/frisbee-3.jpg" width="250px">
 
 Nadat ik uitleg kreeg over de opdracht en heo het systeem in elkaar zit leek het mij ook wel duidelijker.
