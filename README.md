@@ -98,6 +98,8 @@ Nadat wij de kaarten konden laten draaien en de stijling een beetje op orde hadd
 
 ## Oefenen met Api's
 
+<img src="/src/test-api-home.png" alt="#">~Sneakpeak~
+
 Voordat ik me direct probeerde te verdiepen in de API van de opdracht, heb ik de oefenopdracht die sommige klasgenoten hadden gekregen zelf ook gedaan.
 
 De oefenopdracht bestond uit het "scrapen" van afbeeldingen van giphy. je kreeg standaard uiterlijk 10 afbeeldingen die je kon oproepen vanwege een limiet. Dat vond ik problematisch omdat ik een ander idee in gedachten had toen ik dit zelf maakte. Maar goed het lukte me al vrij snel om verschillende types aan data op te halen en weer te geven:
