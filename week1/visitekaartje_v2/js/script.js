@@ -12,28 +12,8 @@ slider.addEventListener('mousedown', (e) => {
     // slider.classList.add('active');
     startX = e.pageX - slider.offsetLeft; //zorgt dat de margin van de pagina niet word meeberekend
     scrollLeft = slider.scrollLeft; // voor als je in het midden wilt berekenen waar je scrollpositie is
-    
-    const x = e.pageX - slider.offsetLeft;
-    // console.log({x, startX})
-    const bewegen = (x - startX) * 3;
-    slider.scrollLeft = scrollLeft - bewegen;
-
-    var minOrPlus = Math.sign(startX - x);
-    var diff = Math.abs(startX - x);
-
-    if( minOrPlus == -1 && diff > 20 && diff <= 21){
-        console.log('-1')
-        count++
-        slider.insertAdjacentHTML('beforeend', 'asdsdaasd');
-
-    }
-    else if(minOrPlus == 1 && diff > 20 && diff <= 21){
-        console.log('1')
-    }
-    else{
-        console.log('test')
-    }
 });        
+
 slider.addEventListener('mouseleave', () => {
     isDown = false;
     // slider.classList.remove('active');
@@ -54,18 +34,54 @@ slider.addEventListener('mousemove', (e) => {
     var minOrPlus = Math.sign(startX - x);
     var diff = Math.abs(startX - x);
 
-    if( minOrPlus == -1 && diff > 20 && diff <= 21){
+    if( minOrPlus == -1 && diff > 20 && diff <= 30){
         console.log('-1')
-        count++
-        var asd = document.querySelectorAll('h1')
+        // count++
+        // var asd = document.querySelectorAll('h1')
     }
-    else if(minOrPlus == 1 && diff > 20 && diff <= 21){
+    else if(minOrPlus == 1 && diff > 20 && diff <= 30){
         console.log('1')
     }
     else{
         
     }
 })
+
+slider.addEventListener('touchstart', (e) => {
+    // console.log('aanraken')
+})
+slider.addEventListener('touchend', (e) => {
+    // console.log('stoppen')
+})
+slider.addEventListener('touchmove', (e) => {
+    // console.log('bewegen')
+    if(!isDown) return; // fallback, mocht iemand tijdens het draggen de window uit gaan, stopt het.
+    e.preventDefault(); // stopt text selecteren.
+    const x = e.pageX - slider.offsetLeft;
+    // console.log({x, startX})
+    const bewegen = (x - startX) * 3;
+    slider.scrollLeft = scrollLeft - bewegen;
+
+    var minOrPlus = Math.sign(startX - x);
+    var diff = Math.abs(startX - x);
+
+    if( minOrPlus == -1 && diff > 20 && diff <= 30){
+        console.log('-1')
+        count++
+        // var asd = document.querySelectorAll('h1')
+    }
+    else if(minOrPlus == 1 && diff > 20 && diff <= 30){
+        console.log('1')
+    }
+    else{
+        
+    }
+})
+
+    // touch events
+    // slide.addEventListener('touchstart', touchStart(index))
+    // slide.addEventListener('touchend', touchEnd)
+    // slide.addEventListener('touchmove', touchMove)
 
 // Schijnbaar werkt dit niet op telefoons :V | Element.setCapture() is verouderd
 
