@@ -6,7 +6,10 @@ const response_type = "token"
 const redirect_uri = "http://127.0.0.1:5500/frisbee-platform/"
 const scope = "universal"
 
-var endpoint = `https://www.leaguevine.com/oauth2/authorize/?client_id=${YOUR_CLIENT_ID}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}`
+const baseURL = "https://www.leaguevine.com"
+const apiURL = "https://api.leaguevine.com"
+
+var endpoint = `${baseURL}/oauth2/authorize/?client_id=${YOUR_CLIENT_ID}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}`
 
 document.querySelector("a").addEventListener("click", leagueLogin);
 
@@ -15,58 +18,52 @@ function leagueLogin(e){
     window.location.href=`${endpoint}`
 }
 
-// Make api call
+// get token from url
 
-getAccesToken()
+getUrlValue()
 
-function getAccesToken(){
-    fetch (`https://www.leaguevine.com/oauth2/token/?client_id=${YOUR_CLIENT_ID}&client_secret=${client_secret}&code=CODE&grant_type=authorization_code&redirect_uri=${redirect_uri}`)
-    .then(response => {
-        // indicates whether the response is successful (status code 200-299) or not
-        if (!response.ok) {
-          throw new Error(`Request failed with status ${reponse.status}`)
-        }
-        return response.json()
-      })
-      .then(data => {
-        console.log(data.count)
-        console.log(data.products)
-      })
-      .catch(error => console.log(error))
+function getUrlValue(){
+  const querystring = window.location.hash
+  console.log(querystring)
+
+  const urlParams = new URLSearchParams(querystring);
+
+  const token = urlParams.get('#access_token')
+  // console.log(token)
+
+  let requestURL = `${apiURL}/v1/games/234/?access_token=${token}`
+
+   fetchData(requestURL)
+  // console.log({requestURL})
 }
 
+// Get data
+
+function fetchData(requestURL){
+  let response = fetch(`https://api.leaguevine.com/v1/leagues/?organization_id=2&access_token=403a293dd1`)
+
+  const req_tournament_teams = "/v1/organizations/"
+
+  //he fetch() method returns a Promise so you can use the then() and catch() methods to handle it:
+  fetch(`https://api.leaguevine.com/v1/leagues/?organization_id=2&access_token=403a293dd1  `)
+  .then(response => {
+    console.log('correct', response)
+    return response.json() // stream
+  })
+  .then(function tournaments(){
+    // tournamentsData = tournaments.data
+    console.log(tournaments.data)
+  })
+  .then(data => console.log(data))
+  .catch(error => {
+    console.log(' | er is iets fout gegaan | ', error) 
+  })
+}
+
+/* When the request completes, the resource is available. At this time, the promise will resolve into a Response object.
+The Response object is the API wrapper for the fetched resource. The Response object has a number of useful properties and methods to inspect the response. */
 
 
-// function getAccesToken(){
-//     fetch (`https://www.leaguevine.com/oauth2/token/?client_id=${YOUR_CLIENT_ID}
-//     &client_secret=${client_secret}
-//     &code=CODE
-//     &grant_type=authorization_code
-//     &redirect_uri=${redirect_uri}`)
+function sampledata(){
 
-//     // .then(response => {
-//     //     if(!response.ok){
-//     //         throw new Error(`Request failed with status ${reponse.status}`)
-//     //     }
-        
-//     //     return response.json()
-//     // })
-
-
-
-// }
-
-// function saveAccessToken(response){
-// }
-
-// fetch(endpoint) // get data asynchronously
-// .then(function(response){
-//     return response.json() // stream
-// })
-
-// .then(function(giphies){
-//     //console.log(giphies)
-//     for (var i = 0; i < 50; i++){
-        
-//     } 
-// })
+}
