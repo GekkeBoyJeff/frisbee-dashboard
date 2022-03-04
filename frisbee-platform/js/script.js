@@ -66,22 +66,26 @@ function getUrlToken(querystring){
 
     let requestURL = `${apiURL}/v1/games/234/?access_token=${token}`
 
-    fetchData(/*requestURL*/)
+    rightUrlPicker
+    fetchData(rightUrlPicker()/*requestURL*/)
    // console.log({requestURL})
 }
 
 // Get data
 
-const pickRightUrl = apiLeague + `/?offset=` + offset
-console.log(pickRightUrl)
+function rightUrlPicker(){
+  pickRightUrl = apiLeague + `?offset=` + offset
+  console.log(pickRightUrl)
+  return pickRightUrl
+}
+
+
 
 // function fetchData(pickRightUrl){
 function fetchData(pickRightUrl){
 
-  // const req_tournament_teams = "/v1/organizations/"
-
   //he fetch() method returns a Promise so you can use the then() and catch() methods to handle it:
-  fetch(`${apiLeague}?offset=` + offset
+  fetch(`${pickRightUrl}`
   // ,{
   //   method: `POST`, 
   //   headers: {
@@ -118,7 +122,6 @@ function fetchData(pickRightUrl){
         if(!offset == 0){
           previous.disabled = false;
           previous.classList.remove('disabled')
-
         }
       })
     }
@@ -126,7 +129,6 @@ function fetchData(pickRightUrl){
       console.log('connectie faalde')
     }
   }
-  
   )
   
   .catch(error => {
@@ -159,10 +161,10 @@ function removeUl(){
 
 /* Navigatieknoppen home screen */
 
-document.querySelector('#teams').addEventListener('click' , function(pickRightUrl) {
+document.querySelector('#teams').addEventListener('click' , function() {
   pickRightUrl = `${teams}`
   removeUl()
-  console.log('yolo')
+  rightUrlPicker()
 })
 
 /* When the request completes, the resource is available. At this time, the promise will resolve into a Response object.
