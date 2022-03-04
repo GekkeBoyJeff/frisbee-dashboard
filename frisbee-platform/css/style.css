@@ -3,13 +3,14 @@
     padding:0px;
     list-style-type: none;
     font-family: system-UI;
-    text-decoration: none;;
+    text-decoration: none;
 }
 
 :root{
     --bg-color : rgb(255, 255, 255);
     --text-color: rgb(39, 39, 39);
     --transparant: rgba(255, 255, 255, 0);
+    --primary-color:#00A5E6;
 }
 
 /* Overal */
@@ -23,13 +24,32 @@
 
 a{
     color: var(--text-color);
+    display: block;
+}
+
+.disabled{
+    color:gray;
+    opacity:0.5;
+}
+
+button{
+    background-color:var(--bg-color);
+    border:none;
+    font-size:1rem;
+    color:var(--text-color);
+    padding:5px 10px;
+    border-radius:5px;
+}
+
+button:active{
+    background-color:var(--primary-color);
 }
 
 /* Header */
 
 header{
     background-color: var(--text-color);
-    color: #00A5E6;
+    color: var(--primary-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,20 +64,6 @@ header div {
     width: 100%;
     justify-content: space-between;
     align-items: center;
-}
-
-header div nav ul li button{
-    background-color:var(--bg-color);
-    border:none;
-    font-size:1rem;
-    color:var(--text-color);
-    padding:5px 10px;
-    border-radius:5px;
-}
-
-header div nav ul li button:hover{
-    display:inline-block;
-    transition:2s;
 }
 
 header>ul {
@@ -87,7 +93,26 @@ nav {
 main section ul {
     display: flex;
     flex-wrap: wrap;
+    margin: 10px;
+    gap: 20px;
 }
 
-main section ul li {flex: 1 1 120px;padding: 10px;margin: 10px;text-align: center;box-shadow: 0px 0px 20px 2px #efefef;border-radius: 10px;}
+main section ul li {
+    flex: 1 1 170px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 20px 2px #efefef;
+    border-radius: 10px;
+}
 
+main section>div {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+main section>div button {
+    box-shadow: 0px 0px 10px #d1d1d1;
+    flex: 1 1 100%;
+    margin: 0px 5px;
+}

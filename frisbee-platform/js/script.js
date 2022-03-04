@@ -9,11 +9,19 @@ const scope = "universal"
 const baseURL = "https://www.leaguevine.com"
 const apiURL = "https://api.leaguevine.com"
 
+let offset = 0;
+
 var beginpoint = `${baseURL}`
 var endpoint = `${baseURL}/oauth2/authorize/?client_id=${YOUR_CLIENT_ID}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}`
 
 const loginBtn = document.querySelector("#login").addEventListener("click", leagueLogin);
 const logoutBtn = document.querySelector("#logout").addEventListener("click", leagueLogout);
+
+const apiLeague = `${apiURL}/v1/leagues/`
+const apiTournament = `${apiURL}/v1/tournaments/`
+const teams = `${apiURL}/v1/teams/`
+const pools = `${apiURL}/v1/pools/`
+const brackets = `${apiURL}/v1/brackets/`
 
 function leagueLogin(e){
     // console.log(e)
@@ -58,24 +66,22 @@ function getUrlToken(querystring){
 
     let requestURL = `${apiURL}/v1/games/234/?access_token=${token}`
 
-    fetchData(requestURL)
+    fetchData(/*requestURL*/)
    // console.log({requestURL})
 }
 
 // Get data
 
-function fetchData(){
+const pickRightUrl = apiLeague + `/?offset=` + offset
+console.log(pickRightUrl)
 
-  const leagueList = document.querySelector('#leagues')
-  const tournooiList = document.querySelector('#tournooi')
-  const teamsList = document.querySelector('#teams')
+// function fetchData(pickRightUrl){
+function fetchData(pickRightUrl){
 
   // const req_tournament_teams = "/v1/organizations/"
 
-  const offset = 0;
-
   //he fetch() method returns a Promise so you can use the then() and catch() methods to handle it:
-  fetch(`https://api.leaguevine.com/v1/leagues/?offset=${offset}`
+  fetch(`${apiLeague}?offset=` + offset
   // ,{
   //   method: `POST`, 
   //   headers: {
@@ -92,14 +98,27 @@ function fetchData(){
       console.log('connectie klopt')
       return res.json()
       .then(data => {
+        console.log(data.objects)
         for (var i = 0; i < 20; i++){
-          console.log(data.objects)
           document.querySelector(`main section ul:first-child`).insertAdjacentHTML('beforeend', 
                 `<li><a href="${data.objects[i].leaguevine_url}">
                     <img src="${data.objects[i].profile_image_50}" alt="${data.objects[i].name}">
                     <h2>${data.objects[i].name}</h2>
                     <p>${data.objects[i].sport}</p>
                     </a></li>`) 
+        }
+        document.querySelector(`main section ul:first-child`).insertAdjacentHTML(`afterend`, "<div><button id='previous'>Previous</button><button id='next'>Next</button><div>")
+
+        // knoppen hier aanroepen omdat ze in deze functie worden aangemaakt
+        document.querySelector("#next").addEventListener("click", offsetNext);
+
+        previous = document.querySelector("#previous")
+        previous.addEventListener("click", offsetPrev);
+        previous.classList.add('disabled')
+        if(!offset == 0){
+          previous.disabled = false;
+          previous.classList.remove('disabled')
+
         }
       })
     }
@@ -114,6 +133,37 @@ function fetchData(){
     console.log(' | er is iets fout gegaan | ', error) // dit werkt echter alleen als je internet uit staat
   })
 }
+
+
+/* Extra knoppen */
+
+function offsetNext(){
+  offset = offset + 20;
+  removeUl()
+  document.querySelector('section div').remove()
+  fetchData()
+}
+
+function offsetPrev(){
+  if(!offset == 0){
+    offset = offset - 20;
+    removeUl()
+    document.querySelector('section div').remove()
+    fetchData()
+  }
+}
+
+function removeUl(){
+  document.querySelector('section ul').innerHTML = ''
+}
+
+/* Navigatieknoppen home screen */
+
+document.querySelector('#teams').addEventListener('click' , function(pickRightUrl) {
+  pickRightUrl = `${teams}`
+  removeUl()
+  console.log('yolo')
+})
 
 /* When the request completes, the resource is available. At this time, the promise will resolve into a Response object.
 The Response object is the API wrapper for the fetched resource. The Response object has a number of useful properties and methods to inspect the response. */
