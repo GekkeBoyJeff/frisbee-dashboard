@@ -9,61 +9,92 @@ const scope = "universal"
 const baseURL = "https://www.leaguevine.com"
 const apiURL = "https://api.leaguevine.com"
 
+var beginpoint = `${baseURL}`
 var endpoint = `${baseURL}/oauth2/authorize/?client_id=${YOUR_CLIENT_ID}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}`
 
-document.querySelector("a").addEventListener("click", leagueLogin);
+const loginBtn = document.querySelector("#login").addEventListener("click", leagueLogin);
+const logoutBtn = document.querySelector("#logout").addEventListener("click", leagueLogout);
 
 function leagueLogin(e){
     // console.log(e)
     window.location.href=`${endpoint}`
 }
 
+function leagueLogout(){
+  window.location.href=`${redirect_uri}`
+}
 // get token from url
 
 getUrlValue()
 
 function getUrlValue(){
   const querystring = window.location.hash
-  console.log(querystring)
+  //console.log(querystring)
+  return querystring;
+  
+}
+checkLogin()
 
+function checkLogin(){
+  let url = window.location.href;
+  if(url.includes('#access_token')){
+    document.querySelector("#login").classList.add('hidden')
+    document.querySelector("#logout").classList.add('show')
+    getUrlToken()
+  }else{
+    console.log(url);
+    document.querySelector("#login").classList.add('show')
+    document.querySelector("#logout").classList.add('hidden')
+  }
+}
+
+
+
+function getUrlToken(querystring){
   const urlParams = new URLSearchParams(querystring);
-
   const token = urlParams.get('#access_token')
   // console.log(token)
 
-  let requestURL = `${apiURL}/v1/games/234/?access_token=${token}`
+    let requestURL = `${apiURL}/v1/games/234/?access_token=${token}`
 
-   fetchData(requestURL)
-  // console.log({requestURL})
+    fetchData(requestURL)
+   // console.log({requestURL})
 }
 
 // Get data
 
 function fetchData(requestURL){
-  let response = fetch(`https://api.leaguevine.com/v1/leagues/?organization_id=2&access_token=403a293dd1`)
 
   const req_tournament_teams = "/v1/organizations/"
 
   //he fetch() method returns a Promise so you can use the then() and catch() methods to handle it:
-  fetch(`https://api.leaguevine.com/v1/leagues/?organization_id=2&access_token=403a293dd1  `)
-  .then(response => {
-    console.log('correct', response)
-    return response.json() // stream
+  fetch(`https://api.leaguevine.com/v1/leagues/`
+  // ,{
+  //   method: `POST`, 
+  //   headers: {
+  //     'Content-Type' : 'application/json'
+  //   },
+  //   body: JSON.stringify({
+      
+  //   })
+  // }
+  // https://www.youtube.com/watch?v=cuEtnrL9-H0&ab_channel=WebDevSimplified
+  )
+  .then(res => {
+    if(res.ok){
+      console.log('connectie klopt')
+      res.json()
+      .then(data => console.log(data))
+    }
+    else{
+      console.log('connectie faalde')
+    }
   })
-  .then(function tournaments(){
-    // tournamentsData = tournaments.data
-    console.log(tournaments.data)
-  })
-  .then(data => console.log(data))
+  
   .catch(error => {
-    console.log(' | er is iets fout gegaan | ', error) 
+    console.log(' | er is iets fout gegaan | ', error) // dit werkt echter alleen als je internet uit staat
   })
 }
 
 /* When the request completes, the resource is available. At this time, the promise will resolve into a Response object.
 The Response object is the API wrapper for the fetched resource. The Response object has a number of useful properties and methods to inspect the response. */
-
-
-function sampledata(){
-
-}
