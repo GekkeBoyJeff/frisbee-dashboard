@@ -15,10 +15,14 @@
 /* Overal */
 
 .show{
-    display:flex;
+    display:block;
 }
 .hidden{
     display: none;
+}
+
+a{
+    color: var(--text-color);
 }
 
 /* Header */
@@ -29,31 +33,61 @@ header{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    height: 120px;
+    gap: 25px;
+    height: 80px;
     padding: 10px;
+    margin-bottom: 40px;
 }
 
-header h1{
+header div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
 
-header nav ul li button{
-    background-color:var(--transparant);
+header div nav ul li button{
+    background-color:var(--bg-color);
     border:none;
     font-size:1rem;
-    color:var(--bg-color)
+    color:var(--text-color);
+    padding:5px 10px;
+    border-radius:5px;
 }
 
-header nav ul li:first-child button::before{
-    content:'Are you playing? click here to ';
-    transition:2s;
-}
-
-header nav ul li button:hover{
+header div nav ul li button:hover{
     display:inline-block;
     transition:2s;
 }
 
-nav {
-    padding-bottom: 10px;
+header>ul {
+    display: flex;
+    width: 100%;
+    box-shadow: 0px 0px 12px 0px #2e2e2e26;
+    background-color: white;
+    border-radius: 5px;
 }
+
+header>ul li {
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+header>ul li a {
+    display: block;
+    margin: 10px 0px;
+}
+
+nav {
+    margin-top: 0.5rem;
+}
+
+/* Main */
+
+main section ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main section ul li {flex: 1 1 120px;padding: 10px;margin: 10px;text-align: center;box-shadow: 0px 0px 20px 2px #efefef;border-radius: 10px;}
+

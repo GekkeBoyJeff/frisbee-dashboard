@@ -33,6 +33,7 @@ function getUrlValue(){
   return querystring;
   
 }
+
 checkLogin()
 
 function checkLogin(){
@@ -63,12 +64,18 @@ function getUrlToken(querystring){
 
 // Get data
 
-function fetchData(requestURL){
+function fetchData(){
 
-  const req_tournament_teams = "/v1/organizations/"
+  const leagueList = document.querySelector('#leagues')
+  const tournooiList = document.querySelector('#tournooi')
+  const teamsList = document.querySelector('#teams')
+
+  // const req_tournament_teams = "/v1/organizations/"
+
+  const offset = 0;
 
   //he fetch() method returns a Promise so you can use the then() and catch() methods to handle it:
-  fetch(`https://api.leaguevine.com/v1/leagues/`
+  fetch(`https://api.leaguevine.com/v1/leagues/?offset=${offset}`
   // ,{
   //   method: `POST`, 
   //   headers: {
@@ -83,13 +90,25 @@ function fetchData(requestURL){
   .then(res => {
     if(res.ok){
       console.log('connectie klopt')
-      res.json()
-      .then(data => console.log(data))
+      return res.json()
+      .then(data => {
+        for (var i = 0; i < 20; i++){
+          console.log(data.objects)
+          document.querySelector(`main section ul:first-child`).insertAdjacentHTML('beforeend', 
+                `<li><a href="${data.objects[i].leaguevine_url}">
+                    <img src="${data.objects[i].profile_image_50}" alt="${data.objects[i].name}">
+                    <h2>${data.objects[i].name}</h2>
+                    <p>${data.objects[i].sport}</p>
+                    </a></li>`) 
+        }
+      })
     }
     else{
       console.log('connectie faalde')
     }
-  })
+  }
+  
+  )
   
   .catch(error => {
     console.log(' | er is iets fout gegaan | ', error) // dit werkt echter alleen als je internet uit staat
