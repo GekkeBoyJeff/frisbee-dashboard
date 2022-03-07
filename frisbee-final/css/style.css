@@ -4,13 +4,16 @@
     font-family:system-ui;
     text-decoration: none;   
     color:black;
+    list-style-type: none;
 }
 
 .hidden{
     display:none;
 }
 
-div {
+header {text-align: center;}
+
+div, ul {
     background-color: #00c4ff;
     display: flex;
     flex-direction: column;
@@ -31,7 +34,7 @@ div {
     z-index: 2;
 }
 
-#intro a p {
+#intro a p, h3 {
     background-color: rgb(255 255 255);
     padding: 10px 10px;
     margin: 10px 0px;

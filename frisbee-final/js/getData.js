@@ -33,11 +33,7 @@ function fetchData(url){
                     case "pools":
                         loadPools(data)
                         break;
-                    case "teams":
-                        loadTeams(data)
-                        break;
                 }
-
             })
         }
         
@@ -58,18 +54,17 @@ function loadTournaments(data){
 function loadPools(data){
     var poolDiv = document.querySelector(`#pools`)
     console.log(data.objects)
-    //Reverse the loop so that the order is correct of the pools
-    for(var i = data.objects.length - 1; i >= 0; i--){
+    for(var i = 0; i < data.objects.length; i++){
         if(data.objects != ''){
-
             poolDiv.insertAdjacentHTML('beforeend',`<h3>Pool ${data.objects[i].name}</h3>`)
+            for(var t = 0; t < data.objects[i].standings.length; t++){
+                poolDiv.insertAdjacentHTML('beforeend',`<li>${data.objects[i].standings[t].team.name}</li>`)
+            }
         }
     }
 }
 
-function loadTeams(data){
-    
-}
+// ${data.objects[i].standings[i].team.name}
 
 // Tournament klikbaar maken
 document.querySelector(`#intro a`).addEventListener("click", ()=>{
