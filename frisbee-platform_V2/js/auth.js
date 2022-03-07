@@ -1,7 +1,7 @@
-const YOUR_CLIENT_ID = "ea52dfa1b062b4dd688206d2fd0a6c"
-const client_secret = "57623563394553bad3db0138cfc242"
+const YOUR_CLIENT_ID = "2607ac8f36172738d41e92f82e2bdc"
+const client_secret = "4021f74b8a091f37b335315a809403"
 const response_type = "token"
-const redirect_uri = "http://127.0.0.1:5500/frisbee-platform/"
+const redirect_uri = "http://127.0.0.1:5500/frisbee-platform_V2/"
 const scope = "universal"
 
 const loginBtn = document.querySelector("#login");
