@@ -33,6 +33,9 @@ function fetchData(url){
                     case "pools":
                         loadPools(data)
                         break;
+                    case "programs":
+                        loadPrograms(data)
+                        break;
                 }
             })
         }
@@ -52,19 +55,52 @@ function loadTournaments(data){
 }
 
 function loadPools(data){
-    var poolDiv = document.querySelector(`.pools`)
+    const poolDiv = document.querySelector(`.pools`)
+
     console.log(data.objects)
-    for(var i = 0; i < data.objects.length; i++){
+
+    for(let i = 0; i < data.objects.length; i++){
         if(data.objects != ''){
-            poolDiv.insertAdjacentHTML('beforeend',`<a href="#programma"><h3>Pool ${data.objects[i].name}</h3></a>`)
-            for(var t = 0; t < data.objects[i].standings.length; t++){
-                poolDiv.insertAdjacentHTML('beforeend',`<li>${data.objects[i].standings[t].team.name}</li>`)
-            }
+            poolDiv.insertAdjacentHTML('beforeend',`<ul></ul>`)
         }
     }
+
+    let poolDivUl = document.querySelector(`.pools ul`)
+    // console.log(poolDivUl)
+    
+    let test = 0
+
+    for(let i = 0; i < data.objects.length; i++){
+        if(test == 1){
+            poolDivUl = document.querySelector(`.pools ul:last-child`)
+        }
+        if(data.objects != ''){
+            poolDivUl.insertAdjacentHTML('beforeend',`<a href="#programma" class="programChecker"><h3>Pool ${data.objects[i].name}</h3></a>`)
+            console.log(poolDivUl)
+            test++
+            for(let t = 0; t < data.objects[i].standings.length; t++){
+                poolDivUl.insertAdjacentHTML('beforeend',`<li>${data.objects[i].standings[t].team.name}</li>`)
+            }
+        }
+    }    
+
+
+    const programDiv = document.querySelector(`#programma`)
+    document.querySelector(`.programChecker:first-of-type`).addEventListener("click", ()=>{
+        console.log(data.objects[0])
+        for(var t = 0; t < data.objects[0].standings.length; t++){
+            programDiv.insertAdjacentHTML('beforeend',`<li>${data.objects[0].standings[t].team.name}</li>`)
+        }
+    })
+    document.querySelector(`.programChecker:last-of-type`).addEventListener("click", ()=>{
+        console.log(data.objects[1])
+        for(var t = 0; t < data.objects[1].standings.length; t++){
+            programDiv.insertAdjacentHTML('beforeend',`<li>${data.objects[1].standings[t].team.name}</li>`)
+        }
+    })
 }
 
-// ${data.objects[i].standings[i].team.name}
+// if .pools>a#programma:first-child is clicked, haal dan data.object[0] op.
 
 // Tournament klikbaar maken
 document.querySelector(`#intro a`).addEventListener("click", ()=>{
