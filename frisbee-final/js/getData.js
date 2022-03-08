@@ -52,11 +52,11 @@ function loadTournaments(data){
 }
 
 function loadPools(data){
-    var poolDiv = document.querySelector(`#pools`)
+    var poolDiv = document.querySelector(`.pools`)
     console.log(data.objects)
     for(var i = 0; i < data.objects.length; i++){
         if(data.objects != ''){
-            poolDiv.insertAdjacentHTML('beforeend',`<h3>Pool ${data.objects[i].name}</h3>`)
+            poolDiv.insertAdjacentHTML('beforeend',`<a href="#programma"><h3>Pool ${data.objects[i].name}</h3></a>`)
             for(var t = 0; t < data.objects[i].standings.length; t++){
                 poolDiv.insertAdjacentHTML('beforeend',`<li>${data.objects[i].standings[t].team.name}</li>`)
             }
