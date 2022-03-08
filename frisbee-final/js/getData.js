@@ -1,4 +1,5 @@
 const apiURL = "https://api.leaguevine.com"
+const origin = window.location.origin + `/frisbee-final/`
 
 const apiTournament = `${apiURL}/v1/tournaments/`
 const apiTournamentId = `[21291]`
@@ -52,38 +53,47 @@ function loadTournaments(data){
     document.querySelector(`#intro a h2`).innerHTML = `${data.objects[0].name}`
     document.querySelector(`#intro a p:nth-child(3)`).innerHTML = `${data.objects[0].start_date} - ${data.objects[0].end_date}`
     document.querySelector(`#intro a p:nth-child(4)`).innerHTML = `${data.objects[0].season.name}`
+    document.querySelector(`h1>a`).href=`${origin}`
 }
 
 function loadPools(data){
-    const poolDiv = document.querySelector(`.pools`)
+    const poolDiv = document.querySelector(`#pools`)
 
     console.log(data.objects)
-
+    
     for(let i = 0; i < data.objects.length; i++){
         if(data.objects != ''){
             poolDiv.insertAdjacentHTML('beforeend',`<ul></ul>`)
+            console.log(data.objects)
         }
     }
 
-    let poolDivUl = document.querySelector(`.pools ul`)
+    let poolDivUl = document.querySelector(`#pools ul`)
     // console.log(poolDivUl)
     
-    let test = 0
+    let ulCounter = 0
+
+    data.objects.reverse() // A & B staan anders omgedraaid
+
+    document.querySelector(`#intro a`).addEventListener("click",()=>{
+        poolDiv.innerHTML = '';
+       // document.querySelector(`#intro`).classList.add(`.disabled`)
+    })
 
     for(let i = 0; i < data.objects.length; i++){
-        if(test == 1){
-            poolDivUl = document.querySelector(`.pools ul:last-child`)
+        if(ulCounter == 1){
+            poolDivUl = document.querySelector(`#pools ul:last-child`)
         }
         if(data.objects != ''){
-            poolDivUl.insertAdjacentHTML('beforeend',`<a href="#programma" class="programChecker"><h3>Pool ${data.objects[i].name}</h3></a>`)
+            poolDivUl.insertAdjacentHTML('beforeend',`<span>Pool ${data.objects[i].name}</span><a href="#programma" class="programChecker"><h3>Pool ${data.objects[i].name}</h3></a>`)
             console.log(poolDivUl)
-            test++
+            ulCounter++
             for(let t = 0; t < data.objects[i].standings.length; t++){
                 poolDivUl.insertAdjacentHTML('beforeend',`<li>${data.objects[i].standings[t].team.name}</li>`)
             }
+            poolDivUl.insertAdjacentHTML('beforeend',`<li>Bekijk het Programma</li>`)
         }
-    }    
-
+    }
 
     const programDiv = document.querySelector(`#programma`)
     document.querySelector(`.programChecker:first-of-type`).addEventListener("click", ()=>{
