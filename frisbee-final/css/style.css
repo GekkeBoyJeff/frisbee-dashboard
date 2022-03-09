@@ -12,6 +12,7 @@
     --background-color:#4A4A67;
     --background-color-highlight: #6c6c97;
     --accent-color:#5d00ff;
+    --accent-color-lighter:#a068ff;
     --text-color:#fff;
     --label-color:rgb(196, 196, 196);
     --shadow-color:#34283a;
@@ -28,6 +29,12 @@
 
 h1{
     color:var(--text-color);
+}
+
+p>p{
+    font-weight:400;
+    margin:5px;
+    background-color:var(--main-background-color)
 }
 
 header {
@@ -74,9 +81,10 @@ div:hover {
     background-color: var(--background-color-highlight);
 }
 
-div:hover a span{
+#intro:hover a span{
     transform:scale(1.05);
     transition:0.5s;
+    background-color: var(--accent-color-lighter);
 } 
 
 #pools{
@@ -121,12 +129,18 @@ div:hover a span{
     z-index: 1;
 }
 
-a.programChecker:hover ~ li:last-of-type {
+#pools ul a.programChecker:hover ~ li:last-of-type {
     transform: scale(1.03);
     transition: 0.5s;
+    background-color:var(--accent-color-lighter);
 }
 
-#pools ul li {flex: 1 1 26%;background-color: var(--background-color);margin: 5px;padding: 5px;text-align: center;border-radius: 3px;}
+#pools ul li, #programma ul ul li {
+    flex: 1 1 42%;
+    background-color: var(--background-color);
+    margin: 5px;padding: 5px;
+    text-align: center;
+    border-radius: 3px;}
 
 #pools ul li:last-child {
     background-color: var(--accent-color);
@@ -139,8 +153,7 @@ a.programChecker:hover ~ li:last-of-type {
     visibility: hidden;
 }
 
-#intro * {
-    text-align: center;
+#intro>* {
     font-weight: 600;
 }
 
@@ -153,14 +166,14 @@ a.programChecker:hover ~ li:last-of-type {
     align-items: flex-start;
 }
 
-#intro a p {
+#intro a > p, p p {
     padding: 10px 0px;
     border-radius: 10px;
     z-index: 1;
     color: var(--label-color);
 }
 
-#intro a p:first-child {
+#intro a>p:first-child {
     color: var(--text-color);
 }
 
@@ -168,6 +181,7 @@ a.programChecker:hover ~ li:last-of-type {
     font-weight: bold;
     margin: 15px 0px 30px 0px;
     color: var(--text-color);
+    text-decoration-line: underline;
 }
 
 #intro a span {
@@ -181,7 +195,7 @@ a.programChecker:hover ~ li:last-of-type {
     border: 2px solid white;
 }
 
-#intro a p:first-child {
+#intro a>p:first-child {
     position: absolute;
     top: 0;
     right: 0;
@@ -194,7 +208,7 @@ a.programChecker:hover ~ li:last-of-type {
     font-weight: 700;
 }
 
-#intro a p, #intro a h2 {
+#intro a>p, #intro a h2 {
     margin-left: 20px;
 }
 
@@ -228,22 +242,62 @@ body {
 }
 
 #programma{
-    display:none;
+    display: none;
 }
 
 #programma:target{
-    display:flex;
+    display: flex;
 }
 
-ul{
+div>ul{
     background-color: var(--main-background-color);
     padding:15px;
     margin:0px 0px 20px 0px;
     border-radius: 5px;
 }
 
-@media screen and (min-width:800px){
-    #pools ul{
+#programma ul{
+    margin:0px;
+    position: relative;
+}
+
+
+ul h3 {
+    position: absolute;
+    top: -15px;
+    left: 30px;
+  }
+
+ul>ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px 0px;
+}
+ul > ul li {
+    flex: 1 1 28%;
+    text-align: center;
+}
+ul > ul li:first-child {
+    flex: 1 1 100%;
+    text-align: left;
+}
+
+ul ul li span {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    background-color: red;
+  }
+
+@media screen and (min-width:920px){
+    #pools ul, #programma ul{
         margin: 10px;
+    }
+}
+
+@media screen and (max-width:919px){
+    #pools ul span{
+        margin-top:3px;
     }
 }

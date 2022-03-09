@@ -72,4 +72,4 @@ if(typeof formattedUrlQuery.access_token != 'undefined') {
 }
 
 // Zo halen we de access token weer uit de sessie.
-console.log(getAccessToken());
+console.log(`access_token: `,getAccessToken());
