@@ -175,10 +175,9 @@ function loadPrograms(data){ // case 3
 
 function loadProgramsDone(data){
     let programDiv = document.querySelector(`#programma`)
-
-    // for(let i = 0; i < data.objects[i].length; i++){
-    //     programDiv.insertAdjacentHTML('beforeend',`<ul><li>${data.objects[i].standings[t].team.name}<span>Rank: ${data.objects[i].standings[t].rank}</span></li><li>Wins: ${data.objects[1].standings[t].wins}</li><li>Ties: ${data.objects[i].standings[t].ties}</li><li>Losses: ${data.objects[1].standings[t].losses}</li></ul>`)
-    // }
-
     console.log(data.objects)
+    for(let r = 0; i < data.objects[i].length; i++){
+        programDiv.insertAdjacentHTML('beforeend',`<ul><li>${data.objects[i]}</li></ul>`)
+        console.log('hi')
+    }
 }
