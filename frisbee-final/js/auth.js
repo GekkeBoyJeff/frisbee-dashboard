@@ -1,6 +1,6 @@
 import { origin } from "./getData.js"
 
-const YOUR_CLIENT_ID = "bd6a6503bdcf6eaaa27b115fc38394"
+const your_client_id = "bd6a6503bdcf6eaaa27b115fc38394"
 const client_secret = "bd6a6503bdcf6eaaa27b115fc38394"
 const response_type = "token"
 const redirect_uri = "http://127.0.0.1:5500/frisbee-final/"
@@ -11,7 +11,7 @@ loginBtn.addEventListener("click", redirectLogin);
 
 // doorlinken naar url om in te loggen
 function redirectLogin(){
-    window.location.href = `https://www.leaguevine.com/oauth2/authorize/?client_id=${YOUR_CLIENT_ID}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}`;
+    window.location.href = `https://www.leaguevine.com/oauth2/authorize/?client_id=${your_client_id}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}`;
 }
 
 // ik krijg van leaguevine data terug, daarvan pak ik de access_token
@@ -70,8 +70,7 @@ if(typeof formattedUrlQuery.access_token != 'undefined') {
     saveAccessToken(formattedUrlQuery.access_token);
 
     // Vervolgens redirecten we naar de redirect_url zodat de URL weer schoon is en geen rare parameters heeft
-    window.location.href = origin;
-
+    window.location.href = redirect_uri;
 }
 
 // Zo halen we de access token weer uit de sessie.
