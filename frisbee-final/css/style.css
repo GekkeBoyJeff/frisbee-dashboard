@@ -7,6 +7,10 @@
     list-style-type: none;
 }
 
+a ul {
+    flex:  1 1 100%;
+}
+
 :root{
     --main-background-color:#22233B;
     --background-color:#4A4A67;
@@ -76,12 +80,12 @@ div {
     transition: 1s;
 }
 
-div:hover {
+div:hover  {
     transition: 1s;
     background-color: var(--background-color-highlight);
 }
 
-#intro:hover a span{
+#intro:hover a span, #programma ul li:hover{
     transform:scale(1.05);
     transition:0.5s;
     background-color: var(--accent-color-lighter);
@@ -135,7 +139,7 @@ div:hover {
     background-color:var(--accent-color-lighter);
 }
 
-#pools ul li, #programma ul ul li {
+#pools ul li, #programma ul ul li, #programma ul li {
     flex: 1 1 42%;
     background-color: var(--background-color);
     margin: 5px;padding: 5px;
@@ -249,6 +253,14 @@ body {
     display: flex;
 }
 
+#result{
+    display:none;
+}
+
+#result:target{
+    display: flex;
+}
+
 div>ul{
     background-color: var(--main-background-color);
     padding:15px;
@@ -256,9 +268,31 @@ div>ul{
     border-radius: 5px;
 }
 
+#programma {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 #programma ul{
+    flex: 1 1 400px;
+    flex-wrap: wrap;
+    flex-direction: row;
     margin:0px;
     position: relative;
+}
+
+#programma>ul:nth-child(1n+2){
+    margin-top:20px;
+}
+
+ul li a{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+ul li a p{
+    flex: 1 1 33%;
 }
 
 
@@ -293,6 +327,12 @@ ul ul li span {
 @media screen and (min-width:920px){
     #pools ul, #programma ul{
         margin: 10px;
+    }
+    #programma>ul:nth-child(1n+2){
+        margin:10px;
+    }
+    #programma ul:nth-child(3){
+        flex: 1 1 30%
     }
 }
 
