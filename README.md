@@ -51,9 +51,82 @@ Dus ben ik begonnen met onderzoek doen naar hoe heel het frisbee tournament in e
 <img src="/src/frisbee-1.jpg" width="250px"><img src="/src/frisbee-2.jpg" width="250px"><img src="/src/frisbee-3.jpg" width="250px">
 
 Nadat ik uitleg kreeg over de opdracht en hoe het systeem in elkaar zit leek het mij ook wel duidelijker.
-Echter heb ik nog een week vastgezeten met hoe je de date kan ophalen, dit omdat je data via de OATH2 moest aanvragen en dat wou niet lukken...
+Echter heb ik nog een week vastgezeten met hoe je de date kan ophalen, dit omdat je data via de OATH2 moest aanvragen en dat wou niet lukken voor een lange periode.
 
+## API
 
+Ik heb gebruik gemaakt van fetch om de data op te halen en terug te krijgen in een json format
+
+```
+function fetchData(url){
+    fetch(url)
+    .then(res =>{
+        if(res.ok){
+            return res.json()
+            .then(data => {
+                // hier kan je dingen gaan opvragen
+            }
+        }
+    }
+}
+```
+Je vraagt dus om een antwoord vanuit een URL, dat resultaat controleer je (response 200 hoop je altijd voor), zoja, dan kan je met .then dingen met je data doen.
+Echter voordat ik dit waar kon maken had ik voor mijn applicatie een access_token nodig. 
+
+### OAUTH2
+
+Door middel van OAUTH2 heb ik toegang kunnen krijgen tot de applicatie.
+
+```     window.location.href = 'https://www.leaguevine.com/oauth2/authorize/?client_id=${your_client_id}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}'; ```
+
+Dit linkte mij door naar hun website die data terug stuurde. Dan was het eerste probleem daarvan dat deze data terug kwam in je URL. Ik heb mijn URL 2 keer gesplit en de data die ik nodig had opgeslagen in mijn session storage. ``` window.sessionStorage.setItem('access_token', token); ```
+
+Toen ik de access_token had bemachtigd heb ik ervoor gezorgd dat ik bij elke fetch deze code kan aanroepen.
+### Render HTML
+
+Het renderen van mijn HTML gaat eerst door mijn switch statement
+```
+    switch(currentState){
+        case "tournament":
+            // als currentstate tournament is > doe dan ...
+            console.log(`state naar tournament`)
+            loadTournaments(data) // en geef je data mee zodat het gelezen kan worden
+            // console.log(data)
+            break;
+        case "pools":
+            console.log(`state naar pools`)    
+            loadPools(data) 
+            
+            break;
+        case "programs":
+            console.log(`state naar programs`)
+            loadPrograms(data)
+            //console.log(data)
+
+            break;
+        case "programsDone":
+            console.log(`state naar loadProgramsDone`)
+            loadProgramsDone(data)
+            // console.log(data.objects)
+            break;
+        case "gamedata":
+            console.log('state naar gamedata')
+            // console.log(data.objects)
+            loadGames(data)
+            break;
+    }
+```  
+
+Op basis van mijn cases laat ik verschillende javascript modules die data inladen als volgt:
+
+```
+export function loadTournaments(data){ // case 1
+    document.querySelector(`#intro a h2`).innerHTML = `${data.objects[0].name}`
+    document.querySelector(`#intro a p:nth-child(3)`).innerHTML = `${data.objects[0].start_date} - ${data.objects[0].end_date}`
+    document.querySelector(`#intro a p:nth-child(4)`).innerHTML = `${data.objects[0].season.name}`
+    document.querySelector(`h1>a`).href=`${origin}`
+}
+```
 
 <div id="week1">
     <a href="#">

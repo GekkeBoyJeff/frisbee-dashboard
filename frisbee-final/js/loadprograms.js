@@ -17,27 +17,13 @@ export function loadPrograms(data){ // case 3
     // alle wedstrijden
 
     if(whichProgramLinkClicked == 1){ 
-        
         programDiv = document.querySelector(`#programma ul>li:first-child`)
-
         poolId = data.objects[0].id
-        
-        // for(var t = 0; t < data.objects[0].standings.length; t++){
-        //     programDiv.insertAdjacentHTML('beforeend',`<ul><li>${data.objects[0].standings[t].team.name}<span>Rank: ${data.objects[1].standings[t].rank}</span></li><li>Wins: ${data.objects[1].standings[t].wins}</li><li>Ties: ${data.objects[1].standings[t].ties}</li><li>Losses: ${data.objects[1].standings[t].losses}</li></ul>`)
-        //     }
-            // console.table(data.objects[0])
-            // console.log(`Pool B Data | `,data.objects[0])
-            
+
     }else{
-
         poolId = data.objects[1].id
-
         programDiv.innerHTML = `<ul><h3>Programma</h3></ul>`
         programDiv = document.querySelector(`#programma ul:last-child`)
-        // for(var t = 0; t < data.objects[1].standings.length; t++){
-        //     programDiv.insertAdjacentHTML('beforeend',`<ul><li>${data.objects[1].standings[t].team.name}<span>Rank: ${data.objects[1].standings[t].rank}</span></li><li>Wins: ${data.objects[1].standings[t].wins}</li><li>Ties: ${data.objects[1].standings[t].ties}</li><li>Losses: ${data.objects[1].standings[t].losses}</li></ul>`)
-        // }
-        // console.table(`Pool A Data | `,data.objects[1]) 
     }
 
     urlProgramsDone = `${apiURL}/v1/pool_rounds/?pool_id=${poolId}&access_token=` + getAccessToken();
