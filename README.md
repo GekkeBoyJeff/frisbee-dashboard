@@ -13,6 +13,48 @@
 
 ##
 
+<img src="src/tab1.png" alt="#" style="display:inline-flex; width:400px;"><img src="src/tab2.png" alt="#" style="display:inline-flex; width:400px;">
+
+## Beschrijving
+
+Ik heb de opdracht Frisbee tournament gekozen. 
+
+Wat heb ik mij vergist in de moeilijkheidsgraad van deze opdracht. Het hele systeem van het tournament snappen vereisde al heel veel denkwerk.
+De API van LeagueVine is enorm complex, het is zo uitgebreid dat het onoverzichtelijk is. Ik vond dit enorm leervol maar vooral moeilijk en stressvol.
+
+Het bouwen van een dashboard leek mij leuk omdat ik data wou inladen en hopelijk leren data terug te schrijven.
+
+## Dit project installeren
+
+### Clone deze repo
+
+```$ gh repo clone GekkeBoyJeff/frisbee-dashboard```
+
+De auth code word over je eigen interne ip adres van je locale server gestuurd.  ```127.0.0.1```
+
+## Hoe gebruik je dit?
+
+Je begint met het clonen van de applicatie. Als je jouw locale server wilt gebruiken moet je de redirect_uri in auth.js aanpassen naar 127.0.0.1
+Je kan de web-app nu gebruiken zonder in te loggen. Echter als ik later heb toegevoegd dat je ook data kan toevoegen aan de web-app, zal je wel moeten inloggen.
+Je kan door de app heen klikken om verschillende data op te halen. De resultaten pagina werkt (nog) niet. 
+
+Wat je wel kan, is door de 'corona wappies' toernooi bladeren, hierin kan je zien welke pools er beschikbaar waren en welke teams tegen elkaar spelen, gaan spelen of al hebben gespeeld. daarbij kan je ook zien wat hun score is geworden
+
+## Beginnen met de opdracht
+
+Ik begon met het kijken naar welke data ik nou precies kon ophalen, echter kon ik mij niet registreren op hun website vanwege een error. Dit heeft verschillende weken geduurd maar uiteindelijk heb ik een account weten te bemachtigen waardoor ik hieraan kon werken. Tot die tijd 
+
+<img src="src/internal-server-error.png">
+
+Dus ben ik begonnen met onderzoek doen naar hoe heel het frisbee tournament in elkaar zit. Dit heeft mij veel tijd gekost deze week. Ik snapte het hele systeem erachter niet.
+
+<img src="/src/frisbee-1.jpg" width="250px"><img src="/src/frisbee-2.jpg" width="250px"><img src="/src/frisbee-3.jpg" width="250px">
+
+Nadat ik uitleg kreeg over de opdracht en hoe het systeem in elkaar zit leek het mij ook wel duidelijker.
+Echter heb ik nog een week vastgezeten met hoe je de date kan ophalen, dit omdat je data via de OATH2 moest aanvragen en dat wou niet lukken...
+
+
+
 <div id="week1">
     <a href="#">
     <img src="svgNotRelated/week1.svg" width="100%" height="230" alt="geanimeerde header tekst waar 'week 1' in staat" style="padding-bottom:-10px; font-size:32px; text-align:center; object-fit: cover; border-radius: 10px;">
@@ -167,19 +209,3 @@ document.querySelector('.previous').addEventListener("click", function() {
     }
 })
 ```
-
-## Beginnen met de opdracht
-
-Ik heb de opdracht Frisbee tournament gekozen. 
-
-Wat heb ik mij vergist in de moeilijkheidsgraad van deze opdracht. Het hele systeem van het tournament snappen vereist al heel veel denkwerk. 
-
-Maar goed, in deze week wou ik eerst kijken welke data ik nou precies kon ophalen, echter kon ik mij niet registreren op hun website vanwege een error.
-
-<img src="src/internal-server-error.png">
-
-Dus ben ik begonnen met onderzoek doen naar hoe heel het frisbee tournament in elkaar zit. Dit heeft mij veel tijd gekost deze week. Ik snapte het hele systeem erachter niet.
-
-<img src="/src/frisbee-1.jpg" width="250px"><img src="/src/frisbee-2.jpg" width="250px"><img src="/src/frisbee-3.jpg" width="250px">
-
-Nadat ik uitleg kreeg over de opdracht en heo het systeem in elkaar zit leek het mij ook wel duidelijker.

@@ -3,7 +3,7 @@ import { origin } from "./getData.js"
 const your_client_id = "bd6a6503bdcf6eaaa27b115fc38394"
 const client_secret = "bd6a6503bdcf6eaaa27b115fc38394"
 const response_type = "token"
-const redirect_uri = "http://127.0.0.1:5500/frisbee-final/"
+const redirect_uri = "https://gekkeboyjeff.github.io/frisbee-dashboard/frisbee-final/"
 const scope = "universal"
 
 const loginBtn = document.querySelector("#loginBtn");
