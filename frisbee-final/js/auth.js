@@ -13,7 +13,7 @@ function redirectLogin(){
 }
 
 // ik krijg van leaguevine data terug, daarvan pak ik de access_token
-function getAccessToken(){
+export function getAccessToken(){
     return window.sessionStorage.getItem('access_token')
 }
 

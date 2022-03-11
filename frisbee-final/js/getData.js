@@ -1,3 +1,7 @@
+import { loadTournaments } from './loadtournaments.js'
+import { getAccessToken } from './auth.js'
+import { loadPools } from './loadpools.js'
+
 const apiURL = "https://api.leaguevine.com"
 const origin = window.location.origin + `/frisbee-final/`
 
@@ -11,9 +15,9 @@ let poolId
 
 const urlTournaments = apiTournament + `?tournament_ids=` + apiTournamentId + `&access_token=` + getAccessToken();
 const urlPools = apiPools + `?tournament_id=${apiTournamentIdPool}`+ `&access_token=` + getAccessToken();
-const urlPrograms = apiPools + `?tournament_id=${apiTournamentIdPool}`+ `&access_token=` + getAccessToken();
+export const urlPrograms = apiPools + `?tournament_id=${apiTournamentIdPool}`+ `&access_token=` + getAccessToken();
 let urlProgramsDone
-const urlPoolData = apiPools + `?tournament_id=${apiTournamentIdPool}`+ `&access_token=` + getAccessToken();
+export const urlPoolData = apiPools + `?tournament_id=${apiTournamentIdPool}`+ `&access_token=` + getAccessToken();
 let urlGames = `${apiURL}/v1/games/?pool_id=20787&order_by=%5Bstart_time%5D&limit=50&access_token=` + getAccessToken();
 
 // Beginstate - tournament
@@ -22,9 +26,8 @@ let currentState = "tournament"
 // geeft de constante door in de function
 fetchData(urlTournaments)
 
-
 // url is in dit geval dus urlTournament | een benaming voor je variabel die je meegeeft
-function fetchData(url){
+export function fetchData(url){
     fetch(url)
     .then(res =>{
         if(res.ok){
@@ -64,21 +67,11 @@ function fetchData(url){
                 }
             })
         }
-        
     })
 }
 
-function changeState(newState){
+export function changeState(newState){
     currentState = newState;
-}
-
-function loadTournaments(data){ // case 1
-    console.log(`rournament data from fetch | `, data.objects[0]);
-    document.querySelector(`#intro a h2`).innerHTML = `${data.objects[0].name}`
-    // document.querySelector(`#intro a p:nth-child(3)`).innerHTML = `${data.objects[0].info}`
-    document.querySelector(`#intro a p:nth-child(3)`).innerHTML = `${data.objects[0].start_date} - ${data.objects[0].end_date}`
-    document.querySelector(`#intro a p:nth-child(4)`).innerHTML = `${data.objects[0].season.name}`
-    document.querySelector(`h1>a`).href=`${origin}`
 }
 
 // Tournament klikbaar maken
@@ -88,65 +81,11 @@ document.querySelector(`#intro a`).addEventListener("click", ()=>{
     changeState("pools");
 })
 
-function loadPools(data){ // case 2
-    const poolDiv = document.querySelector(`#pools`)
-    
-    for(let i = 0; i < data.objects.length; i++){
-        if(data.objects != ''){
-            poolDiv.insertAdjacentHTML('beforeend',`<ul></ul>`)
-        }
-    }
-
-    let poolDivUl = document.querySelector(`#pools ul`)
-    // console.log(poolDivUl)
-    
-    let ulCounter = 0
-
-    // data.objects.reverse() // A & B staan anders omgedraaid
-
-    document.querySelector(`#intro a`).addEventListener("click",()=>{
-        poolDiv.innerHTML = '';
-       // document.querySelector(`#intro`).classList.add(`.disabled`)
-    })
-
-    for(let i = 0; i < data.objects.length; i++){
-        if(ulCounter == 1){
-            poolDivUl = document.querySelector(`#pools ul:last-child`) // 2de ul
-        }
-        if(data.objects != ''){
-            poolDivUl.insertAdjacentHTML('beforeend',`<span>Pool ${data.objects[i].name} teams</span><a href="#programma" class="programChecker"><h3>Pool ${data.objects[i].name}</h3></a>`)
-            ulCounter++
-            for(let t = 0; t < data.objects[i].standings.length; t++){
-                poolDivUl.insertAdjacentHTML('beforeend',`<li>${data.objects[i].standings[t].team.name}</li>`)
-            }
-            poolDivUl.insertAdjacentHTML('beforeend',`<li>Bekijk het Programma</li>`)
-        }
-    } // einde pools
-
-    const programChecker1 = document.querySelector(`#pools ul:first-child a`)
-    const programChecker2 = document.querySelector(`#pools ul:last-child a`)
-
-    programChecker1.addEventListener("click",()=>{
-        fetchData(urlPrograms)
-        changeState("programs");
-
-        whichProgramLinkClicked = 1
-    })
-    programChecker2.addEventListener("click",()=>{
-        fetchData(urlPrograms)
-        changeState("programs");
-
-        whichProgramLinkClicked = 2
-    })
-
-    
 
 
-} // eind Loadpools
+export let whichProgramLinkClicked // word aan het eind van loadPools gedefineerd
 
-let whichProgramLinkClicked // word aan het eind van loadPools gedefineerd
-
-function loadPrograms(data){ // case 3
+export function loadPrograms(data){ // case 3
     
     let programDiv = document.querySelector(`#programma`)
     programDiv.innerHTML = `<ul><h3>Gespeelde wedstrijden</h3></ul>`
