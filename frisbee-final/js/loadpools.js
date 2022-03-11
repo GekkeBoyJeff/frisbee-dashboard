@@ -2,6 +2,7 @@ import { fetchData } from "./getData.js"
 import { urlPrograms } from "./getData.js"
 import { changeState } from "./getData.js"
 import { whichProgramLinkClicked } from "./getData.js"
+
 export function loadPools(data){ // case 2
     const poolDiv = document.querySelector(`#pools`)
     
@@ -44,13 +45,13 @@ export function loadPools(data){ // case 2
         fetchData(urlPrograms)
         changeState("programs");
 
-        whichProgramLinkClicked = 1
+        let whichProgramLinkClicked = 1
     })
     programChecker2.addEventListener("click",()=>{
         fetchData(urlPrograms)
         changeState("programs");
 
-        whichProgramLinkClicked = 2
+        let whichProgramLinkClicked = 2
     })
 
     

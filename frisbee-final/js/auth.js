@@ -1,3 +1,5 @@
+import { origin } from "./getData.js"
+
 const YOUR_CLIENT_ID = "bd6a6503bdcf6eaaa27b115fc38394"
 const client_secret = "bd6a6503bdcf6eaaa27b115fc38394"
 const response_type = "token"
@@ -31,6 +33,7 @@ const url = window.location.href;
  * Voorbeeld: https://example.com/#access_token=101010&test=1
  * Waarde: ['https://example.com/test', 'access_token=101010&test=1']
  */
+
  var urlQuery = url.split('#');
 
  // Ik defineer nu het object waar de url query parameters als key => value wordt opgeslagen bijvoorbeeld:
@@ -67,7 +70,7 @@ if(typeof formattedUrlQuery.access_token != 'undefined') {
     saveAccessToken(formattedUrlQuery.access_token);
 
     // Vervolgens redirecten we naar de redirect_url zodat de URL weer schoon is en geen rare parameters heeft
-    window.location.href = redirect_uri;
+    window.location.href = origin;
 
 }
 

@@ -279,6 +279,7 @@ div>ul{
     flex-direction: row;
     margin:0px;
     position: relative;
+    border-top: 1px solid var(--main-background-color);
 }
 
 #programma>ul:nth-child(1n+2){
@@ -293,6 +294,7 @@ ul li a{
 
 ul li a p{
     flex: 1 1 33%;
+    margin-bottom: 10px;
 }
 
 
