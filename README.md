@@ -15,6 +15,9 @@
 
 <img src="src/tab1.png" alt="#" style="display:inline-flex; width:400px;"><img src="src/tab2.png" alt="#" style="display:inline-flex; width:400px;">
 
+<img src="src/mob1.png" alt="#" style="display:inline-flex; width:400px;"><img src="src/mob2.png" alt="#" style="display:inline-flex; width:400px;">
+
+
 ## Beschrijving
 
 Ik heb de opdracht Frisbee tournament gekozen. 
@@ -127,6 +130,17 @@ export function loadTournaments(data){ // case 1
     document.querySelector(`h1>a`).href=`${origin}`
 }
 ```
+
+## Gedaab + latere plannen <a name="checklist">
+### Done
+- [x] Data ophalen
+- [x] Data renderen (Over de helft)
+- [x] Internet error state
+ 
+### Future plans
+- [ ] Specifieke data tonen
+- [ ] States
+- [ ] De app afmaken (ook data uploaden)
 
 <div id="week1">
     <a href="#">
